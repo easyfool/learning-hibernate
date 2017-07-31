@@ -5,33 +5,54 @@
   <artifactId>Hibernate</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Hibernate Maven Webapp</name>
+  <name>learning-hibernate</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <hibernate.core.version>5.2.10.Final</hibernate.core.version>
+    <mysql.connection.version>6.0.5</mysql.connection.version>
+    <junit.verson>4.12</junit.verson>
   </properties>
   <dependencies>
     <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <version>${junit.verson}</version>
       <scope>test</scope>
     </dependency>
     <!-- MySQL connector -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>6.0.5</version>
+      <version>${mysql.connection.version}</version>
     </dependency>
-    <!-- Hibernate 5.2.6 Final -->
+
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+   <!--
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>${hibernate.core.version}</version>
+    </dependency>-->
+
+
+    <!-- Hibernate 5.2.6 Final-->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>5.2.6.Final</version>
+      <version>${hibernate.core.version}</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
     <dependency>
-      <groupId>org.slf4j</groupId><!-- hibernate内置日志记录所需包-->
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-c3p0</artifactId>
+      <version>5.2.10.Final</version>
+    </dependency>
+
+    <!--
+    <dependency>
+      <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>1.7.5</version>
     </dependency>
@@ -52,11 +73,11 @@
       <artifactId>cglib</artifactId>
       <version>2.2.2</version>
     </dependency>
+  -->
 
   </dependencies>
 
   <build>
-
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
