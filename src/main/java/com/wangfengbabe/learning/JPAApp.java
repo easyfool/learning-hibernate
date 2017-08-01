@@ -19,6 +19,8 @@ public class JPAApp {
     message.setText("hello world 2");
     entityManager.persist(message);
     transaction.commit();
+    entityManager.close();
+    entityManagerFactory.close();
   }
 
 }

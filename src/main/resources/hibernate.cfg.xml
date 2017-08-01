@@ -27,7 +27,8 @@
     <!--批量插入,删除和更新时每次操作的记录数。Batch Size越大，批量操作的向数据库发送Sql的次数越少，速度就越快，同样耗用内存就越大-->
     <property name="jdbc.batch_size">23</property>
     <mapping resource="hibernate/user.hbm.xml"/>
-    <mapping class="com.wangfengbabe.learning.Employee" />
+    <mapping class="com.wangfengbabe.learning.Employee"/>
     <mapping class="com.wangfengbabe.learning.Message"/>
+    <mapping class="com.wangfengbabe.learning.Product"/>
   </session-factory>
 </hibernate-configuration>

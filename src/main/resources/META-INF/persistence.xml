@@ -6,21 +6,44 @@ http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
   version="1.0">
 
   <persistence-unit name="hbunit">
+    <class>com.wangfengbabe.learning.Message</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
-      <property name="hibernate.ejb.cfgfile" value="/hibernate.cfg.xml"/>
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
-      <property name="hibernate.archive.autodetection" value="class, hbm"/>
-      <property name="hibernate.show_sql" value="true"/>
-      <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-      <property name="hibernate.connection.password" value="root"/>
+      <!--基本配值 -->
+      <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+      <!-- 驱动类型:数据库类型:thin:@ip地址:端口:监听器名称 -->
       <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/hb"/>
-      <property name="hibernate.connection.username" value="root"/>
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
-      <property name="hibernate.c3p0.min_size" value="5"/>
-      <property name="hibernate.c3p0.max_size" value="20"/>
-      <property name="hibernate.c3p0.timeout" value="300"/>
-      <property name="hibernate.c3p0.max_statements" value="50"/>
-      <property name="hibernate.c3p0.idle_test_period" value="3000"/>
+      <!-- 访问数据库用户 -->
+      <property name="hibernate.connection.username" value="root"/>
+      <!-- 访问数据库密码 -->
+      <property name="hibernate.connection.password" value="root"/>
+      <!--create是建表、清空数据库数据 update可以修改表中的数据、可以修改表结构、不可以建表 none只可以修改表中的数据，不编辑表结构 -->
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <!-- 显示sql语句 -->
+      <property name="hibernate.show_sql" value="true"/>
+      <!-- 输出格式化后的sql,更方便查看 -->
+      <property name="hibernate.format_sql" value="true"/>
+      <!--其它配值 -->
+      <property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider"/>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <!-- 最小连接数 -->
+      <property name="c3p0.min_size" value="5"/>
+      <!-- 最大连接数 -->
+      <property name="c3p0.max_size" value="30"/>
+      <!--最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+      <property name="c3p0.maxIdleTime" value="0"/>
+      <!-- 获得连接的超时时间,如果超过这个时间,会抛出异常，单位毫秒 -->
+      <property name="c3p0.timeout" value="1800"/>
+      <!-- 最大的PreparedStatement的数量 -->
+      <property name="c3p0.max_statements" value="50"/>
+      <!-- 每隔10秒检查连接池里的空闲连接 ，单位是秒 -->
+      <property name="c3p0.idle_test_period" value="10"/>
+      <!-- 当连接池里面的连接用完的时候，C3P0一下获取的新的连接数 -->
+      <property name="c3p0.acquire_increment" value="1"/>
+      <!-- 是否每次都验证连接是否可用 -->
+      <property name="c3p0.validate" value="true"/>
     </properties>
   </persistence-unit>
 </persistence>
